@@ -1,0 +1,41 @@
+<div class="container">
+    <form [formGroup]='userForm' (ngSubmit)="onSubmit()">
+        <div class="input_container">
+            <mat-form-field appearance="fill">
+                <mat-label>customerIdentifier</mat-label>
+                <input type="text" matInput formControlName="customerIdentifier">
+                <mat-error *ngIf="userForm.controls.customerIdentifier.errors">{{getErrorMessageForRequired()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Firstname</mat-label>
+                <input type="text" matInput formControlName="firstName">
+                <mat-error *ngIf="userForm.controls.firstName.errors">{{getErrorMessageForRequired()}}</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Lastname</mat-label>
+                <input type="text" matInput formControlName="lastName">
+                <mat-error *ngIf="userForm.controls.lastName.errors">{{getErrorMessageForRequired()}}</mat-error>
+            </mat-form-field>
+    
+                
+            <mat-form-field appearance="fill">
+                <mat-label>AccountNumber</mat-label>
+                <input type="text" matInput formControlName="accountNumber">
+                <mat-error *ngIf="userForm.controls.accountNumber.errors">{{getErrorMessageForRequired()}}</mat-error>
+            </mat-form-field>
+   
+            <mat-form-field appearance="fill">
+                <mat-label>Credit Amount</mat-label>
+                <input type="number" matInput formControlName="creditAmount">
+                <mat-error *ngIf="userForm.controls.creditAmount.errors">{{getErrorMessageForRequired()}}</mat-error>
+            </mat-form-field>     
+        </div>
+        <div class="button_container">
+            <button mat-raised-button type="submit" [disabled]="!userForm.valid">Submit</button> 
+            <button mat-raised-button type="reset" (click)="onCancel()">Cancel</button> 
+        </div>
+    </form>
+    
+</div>
+
